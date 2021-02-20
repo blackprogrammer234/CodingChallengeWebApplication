@@ -18,20 +18,31 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
+          'style-loader',
           {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
-              modules: true,
               importLoaders: 1,
-              localIdentName: "[name]_[local]_[hash:base64]",
-              sourceMap: true,
-              minimize: true
+              modules: true
             }
           }
-        ]
+        ],
+        include: /\.module\.css$/
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ],
+        exclude: /\.module\.css$/
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: "file-loader?name=/public/images/[name].[ext]",
+        options: {
+          limit: 100000,
+        }
       }
     ]
   },
