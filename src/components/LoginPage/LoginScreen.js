@@ -7,9 +7,7 @@ class LoginScreen extends React.Component{
     }
     render(){
         return <div className="base-container">
-            <div className="header">Login</div>
             <div className="content">
-                
                 <div className="form">
                     <div className= "form-group">
                         <label htmlFor= "username">username</label>
@@ -22,9 +20,10 @@ class LoginScreen extends React.Component{
                         <input type="text" name="password" placeholder="password"></input>
                     </div>
                 </div>
-            </div>
-            <div className="footer">
-                <button type="button" className="btn">Login</button>
+                <div className="submit">
+                    <label htmlFor= "submit">submit</label>
+                    <input type="submit" valu="submit" placeholder="submit"></input>  
+                </div>
             </div>
         </div>
     }

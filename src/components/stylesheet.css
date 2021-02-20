@@ -55,4 +55,66 @@ body {
       border-bottom: solid 2px #1059FF;
   } 
 
+   /* footer: forgot section */
+   .forgot-panel {
+    position: relative;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 24px;
+    border-top: solid 1px rgba(255,255,255,.3);    
+}
+
+    /* form styling */
+    .form-group input {
+        width: 100%;
+        height: 35px;
+        padding-left: 15px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        background: rgba(255,255,255,.5);
+    }
+    .form-group label {
+      text-transform: uppercase;
+    }
+    input.submit {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 1em;
+        text-align: center;
+        color: rgba(255,255,255, 1);
+        padding: 8px 0px;
+        width: 100%;
+        height: 35px;
+        border: none;
+        border-radius: 20px;
+        margin-top: 23px;
+        background-color: rgba(16,89,255, 1);
+    
+    }
+
+     /*Form positioning and animation */
+
+     form#registerform {
+        left:500px;
+        top:-230px;
+        position:relative;
+    }
+
+    .forgot-panel {
+        margin-top:-300px;
+        color:gray;
+    }
+
+    form, .forgot-panel { 
+        position: relative;
+        transition: all .5s ease;
+    }
+    #loginBtn, #registerBtn {
+        transition: all .5s ease;
+
+    }
+
 
