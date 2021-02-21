@@ -79,7 +79,7 @@ body {
     .form-group label {
       text-transform: uppercase;
     }
-    input.submit {
+    button.submit {
         font-weight: 700;
         text-transform: uppercase;
         font-size: 1em;

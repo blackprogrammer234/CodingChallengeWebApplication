@@ -1,8 +1,11 @@
 const express = require('express');
 const path = require('path');
+var cors = require('cors');
 const app = express();
 const bodyParser = require("body-parser");
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+
+app.use(cors());
 
 app.set("port", process.env.PORT || 3000);
 
@@ -38,6 +41,6 @@ app.use("/user", require('./routes/signup'));
 app.use("/user", require('./routes/login'))
 
 
-app.listen(app.get("port"), () => {
-    console.log("Listening at localhost:3000")
+var server = app.listen(app.get("port"), () => {
+    console.log('Express server listening on port ' + server.address().port)
 })
