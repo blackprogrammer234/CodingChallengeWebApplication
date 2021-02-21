@@ -1,10 +1,11 @@
 import { urlencoded } from 'body-parser';
 import ReactDOM from 'react-dom';
-import LoginScreen from './LoginPage/LoginScreen';
+import LoginScreen from './Login/LoginPage';
 import { useSpring, animated } from "react-spring";
 import React, { useState } from "react";
 import log from 'loglevel';
 import './stylesheet.css';
+import LoginPage from './Login/LoginPage';
 
 function App() {
     
@@ -58,13 +59,7 @@ function App() {
 }
 function LoginForm() {
     return (
-        <React.Fragment>
-            <label htmlFor="email">EMAIL</label>
-            <input type="text" id="email" placeholder="email"/>
-            <label htmlFor="password">PASSWORD</label>
-            <input type="text" id="password" placeholder="password" />
-            <input type="submit" value="submit" className="submit" />
-        </React.Fragment>
+        <LoginPage/>
     )
 }
 function RegisterForm() {
