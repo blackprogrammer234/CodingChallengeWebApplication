@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import log from 'loglevel';
 import './stylesheet.css';
 import LoginPage from './Login/LoginPage';
+import RegisterPage from './Register/RegisterPage'
 
 function App() {
     
@@ -64,17 +65,7 @@ function LoginForm() {
 }
 function RegisterForm() {
     return (
-        <React.Fragment>
-            <label htmlFor="firstName">First Name</label>
-            <input type="text" id="firstName"  placeholder="firstName" />
-            <label htmlFor="LastName">Last Name</label>
-            <input type="text" id="lastName" placeholder="lastName" />
-            <label htmlFor="email">email</label>
-            <input type="text" id="email" placeholder="email" />
-            <label htmlFor="password">password</label>
-            <input type="text" id="password" placeholder="password"  />
-            <input type="submit" value="submit" class="submit" />
-        </React.Fragment>
+       <RegisterPage/>
     )
 }
 
