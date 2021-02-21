@@ -47,6 +47,7 @@ router.post(
                     console.log("The information was received");
                     res.status(200).json({
                         message: "The information was received",
+                        status: 200,
                         success: true
                     });
                 }

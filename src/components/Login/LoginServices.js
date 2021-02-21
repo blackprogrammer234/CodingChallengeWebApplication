@@ -1,19 +1,23 @@
 import axios from "axios";
 
 
-const LoginServices = (payload) => {
+const LoginServices = (email, password) => {
     axios({
         url: "http://localhost:3000/user/login",
         method: 'POST',
         data: {
-            email: "robert_houston@gmail.com" , password: "example1"
-        },
+            email: email , password: password
+        }
     })
-        .then((res) => {
-            console.log(res.data)
-        }).catch((error) => {
-            console.log(error)
-        });
+    .then(function(response){
+        console.log(response)
+        if(response.status == 200){
+            alert("You have login successfully");
+        }})
+      .catch(message => {
+        return alert('Login failed please try again');
+        console.log(message);
+      });
     }
 
 export default LoginServices;

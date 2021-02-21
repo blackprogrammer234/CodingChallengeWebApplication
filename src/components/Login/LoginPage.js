@@ -35,13 +35,21 @@ class LoginPage extends Component{
     handleOnSubmit(event){
         alert("Email ")
         event.preventDefault();
-        const payload = {
-            email: this.state.email,
-            password: this.state.passowrd
+        console.log("input: " + this.state.password);
+        const loginResult = LoginService( this.state.email , this.state.password);
+        if (loginResult !== 200){
+            this.setState({
+                error: true,
+                loginSuccess: false
+            });
+            console.log('Here the new success' + this.state.loginSuccess);
+        }else{
+            this.setState({
+                error: false,
+                loginSuccess: true
+            });
         }
-        console.log("input: " + payload);
-        const loginResult = LoginService(payload);
-        console.log('Testinnnggggggggggggggggggggggggggg');
+        
     }
 
     render(){
