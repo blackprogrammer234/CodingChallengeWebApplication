@@ -27,6 +27,44 @@ class RegisterPage extends Component {
         this.handleOnSubmit = this.handleOnSubmit.bind(this);
     }
 
+    validate = () => { 
+        let firstNameError = "";
+        let lastNameError = "";
+        let emailError = "";
+        let passwordError = "";
+
+        const letters = "/^[A-Za-z]+$/";
+
+        //Check to see if the first name field contains only letter and not empty
+        if(!this.state.firstName){
+            firstNameError = "First name is invalid "
+        }
+        //Check to see if the last name field contains only letter and not empty
+        if(!this.state.lastName){
+            lastNameError = "Last name is invalid "
+        }
+        //Check to see if the email is a valid email and not empty
+        if(!validator.isEmail(this.state.email) || !this.state.email){
+            emailError = 'Invalid email';
+        }
+        if(!validator.isStrongPassword(this.state.password, 
+            {minLength: 6, minLowercase: 1, 
+            minUppercase: 1, minNumbers: 1, minSymbols: 1
+        })){
+            passwordError = "Invalid password. Password reguire at least 6 character," +
+            "one uppercase character, one number and one special character"
+        }
+        if(firstNameError||lastNameError || emailError || passwordError){
+            this.setState({
+                firstNameError,
+                lastNameError,
+                emailError,
+                passwordError});
+            return false;
+        }
+        return true;
+      } 
+
     handleChangeOnFirstName(event){
         this.setState({
             firstName: event.target.value
@@ -57,18 +95,21 @@ class RegisterPage extends Component {
             email: this.state.email,
             password: this.state.password,
         };
-            const registerResult = await RegisterService(data);
-            if (registerResult != 200) {
-                this.setState({
-                    registerSuccess: false,
-                    error: true
-                });
-            } else
-                this.setState({
-                    registerSuccess: true,
-                    error : false 
-                });
-  
+          const isValid = this.validate();
+          if (isValid) {
+              const registerResult = await RegisterService(data);
+              if (registerResult != 200) {
+                  this.setState({
+                      registerSuccess: false,
+                      error: true
+                  });
+              } else
+                  this.setState({
+                      registerSuccess: true,
+                      error: false
+                  });
+          }
+
     }
 
     render() {
@@ -79,28 +120,34 @@ class RegisterPage extends Component {
         }
         if(error){
             alert("Error: Something went wrong. User registration failed")
+            this.setState({error: false})
         }
         return(
             <React.Fragment>
                 <form onSubmit={this.handleOnSubmit}>
                     <div>
+                        <div style ={{fontSize: 12, color: "red"}}>{this.state.firstNameError}</div>
                         <label htmlFor="firstName">First Name</label>
                         <input type="text" id="firstName" placeholder="firstName" onChange={this.handleChangeOnFirstName}/>
+                        <div style ={{fontSize: 12, color: "red"}}>{this.state.firstNameError}</div>
                     </div>
                     <div>
+                        <div style ={{fontSize: 12, color: "red"}}>{this.state.lastNameError}</div>
                         <label htmlFor="LastName">Last Name</label>
                         <input type="text" id="lastName" placeholder="lastName" onChange={this.handleChangeOnLastName}/>
                     </div>
                     <div>
+                        <div style ={{fontSize: 12, color: "red"}}>{this.state.emailError}</div>
                         <label htmlFor="email">email</label>
                         <input type="text" id="email" placeholder="email" onChange={this.handleChangeOnEmail} />
                     </div>
                     <div>
+                        <div style ={{fontSize: 12, color: "red"}}>{this.state.passwordError}</div>
                         <label htmlFor="password">password</label>
                         <input type="text" id="password" placeholder="password"  onChange={this.handleChangeOnPassword}/>
                     </div>
                     <div>
-                        <button type="button" onClick={this.handleOnSubmit} className="submit"  />
+                        <button type="button" onClick={this.handleOnSubmit} className="submit">Sign up</button>
                     </div>
                 </form>
         </React.Fragment>

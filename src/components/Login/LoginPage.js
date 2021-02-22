@@ -88,7 +88,8 @@ class LoginPage extends Component{
            window.open(configData.Home);
         }
         if(error){
-            alert("There was a problem. We can't sign into your acount. Please try again")
+            alert("There was a problem. We can't sign into your acount. Please try again");
+            this.setState({error: false})
         }
         return(
         <React.Fragment>
@@ -104,7 +105,7 @@ class LoginPage extends Component{
                     <div style ={{fontSize: 12, color: "red"}}>{this.state.passwordError}</div>
                 </div>
                 <div>
-                    <button type="button" onClick={this.handleOnSubmit} className="submit" />
+                    <button type="button" onClick={this.handleOnSubmit} className="submit">Login</button>
                 </div>
             </form>
         </React.Fragment>
