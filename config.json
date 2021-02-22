@@ -1,7 +1,9 @@
 {
     "mongodb": {
-        "host": "localhost",
+        "host": "http://localhost",
         "port": 3000
     },
-    "mongoConnectionString": "mongodb+srv://stibo:Example1234567@cluster0.lp6s2.mongodb.net/new-user?retryWrites=true&w=majority"
+    "mongoConnectionString": "mongodb+srv://stibo:Example1234567@cluster0.lp6s2.mongodb.net/new-user?retryWrites=true&w=majority",
+
+    "Home": "https://www.youtube.com/watch?v=-cZ7ndjhhps&ab_channel=TripleFlipKick360"
 }
