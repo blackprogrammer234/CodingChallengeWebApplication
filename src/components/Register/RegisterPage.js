@@ -1,16 +1,25 @@
-import React from "react";
+import React, { Component } from 'react';
+import validator from 'validator'
 import { useSpring, animated } from "react-spring";
+import RegisterService from "./RegisterServices";
 
+const initialState = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    firstNameError: "",
+    lastNameError: "",
+    emailError: "",
+    passwordError: "",
+    registerSuccess: false,
+    error: false 
+}
 
-export class RegisterPage extends React.Component {
+class RegisterPage extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            firstName : "", 
-            lastName : "", 
-            email: "",
-            password: ""
-        };
+        this.state = initialState;
         this.handleChangeOnFirstName = this.handleChangeOnFirstName.bind(this);
         this.handleChangeOnLastName = this.handleChangeOnLastName.bind(this);
         this.handleChangeOnEmail = this.handleChangeOnEmail.bind(this);
@@ -26,7 +35,7 @@ export class RegisterPage extends React.Component {
 
     handleChangeOnLastName(event){
         this.setState({
-            lastName: event.terget.value
+            lastName: event.target.value
         })
     }
 
@@ -38,15 +47,39 @@ export class RegisterPage extends React.Component {
 
       handleChangeOnPassword(event){ 
         this.setState({ 
-          email : event.target.value 
+          password : event.target.value 
         }); 
       }
-
-      handleOnSubmit(event){
-        const { firstName, lastName, email , password } = this.state.event.preventDefault();
+      handleOnSubmit = async (e) => {
+        const data = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            password: this.state.password,
+        };
+            const registerResult = await RegisterService(data);
+            if (registerResult != 200) {
+                this.setState({
+                    registerSuccess: false,
+                    error: true
+                });
+            } else
+                this.setState({
+                    registerSuccess: true,
+                    error : false 
+                });
+  
     }
 
     render() {
+        const {registerSuccess, error } = this.state;
+        if (registerSuccess) {
+           alert("You have sign up successfully");
+           this.setState(initialState);
+        }
+        if(error){
+            alert("Error: Something went wrong. User registration failed")
+        }
         return(
             <React.Fragment>
                 <form onSubmit={this.handleOnSubmit}>
@@ -67,7 +100,7 @@ export class RegisterPage extends React.Component {
                         <input type="text" id="password" placeholder="password"  onChange={this.handleChangeOnPassword}/>
                     </div>
                     <div>
-                        <input type="submit" value="submit" class="submit" />
+                        <button type="button" onClick={this.handleOnSubmit} className="submit"  />
                     </div>
                 </form>
         </React.Fragment>

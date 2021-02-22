@@ -47,7 +47,6 @@ class LoginPage extends Component{
         this.setState({ 
           email : event.target.value 
         }); 
-        console.log("this is the new email" + event.target.value)
       } 
 
       handleChangeOnPassword(event){ 
