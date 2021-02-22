@@ -1,7 +1,6 @@
 # CodingChallengeWebApplication
 
-
-![Project Image](project-image-url)
+![Project Image](public/images/screenshots/loginpagewebapp.JPG)
 ---
 ### Table of Contents
 You're sections headers will be used to reference location of destination.
