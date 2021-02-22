@@ -3,5 +3,5 @@
         "host": "localhost",
         "port": 3000
     },
-    "mongo-connection-string": "mongodb+srv://stibo:Example1234567@cluster0.lp6s2.mongodb.'+ 'net/new-user?retryWrites=true&w=majority"
+    "mongoConnectionString": "mongodb+srv://stibo:Example1234567@cluster0.lp6s2.mongodb.net/new-user?retryWrites=true&w=majority"
 }

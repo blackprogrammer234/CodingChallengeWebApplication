@@ -11,7 +11,7 @@ router.post(
     check("lastName", "Please enter a last name").not().isEmpty(),
     check("email", "Please enter a valid email").isEmail(),
     check("password", "Please enter a valid password").isLength({
-        min: 8
+        min: 6
     })
 ],
     async (req, res) => {
@@ -56,9 +56,9 @@ router.post(
                         success: false
                     });
                 } else {
-                    console.log("The information was saved");
+                    console.log("User successfully register");
                     res.status(200).json({
-                        message: "The information was saved",
+                        message: "User successfully register",
                         success: true
                     });
                 }

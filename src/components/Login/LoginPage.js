@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LoginService from './LoginServices';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
+import { BrowserRouter  } from 'react-router-dom';
 import { useSpring, animated } from "react-spring";
 
 
@@ -32,27 +33,33 @@ class LoginPage extends Component{
         }); 
       }
 
-    handleOnSubmit(event){
-        alert("Email ")
-        event.preventDefault();
-        console.log("input: " + this.state.password);
-        const loginResult = LoginService( this.state.email , this.state.password);
-        if (loginResult !== 200){
-            this.setState({
-                error: true,
-                loginSuccess: false
-            });
-            console.log('Here the new success' + this.state.loginSuccess);
-        }else{
-            this.setState({
-                error: false,
-                loginSuccess: true
-            });
-        }
-        
-    }
+      handleOnSubmit = async (e) => {
+        const data = {
+          email: this.state.email,
+          password: this.state.password,
+        };
+        const loginResult = await LoginService(data);
+        if (loginResult !== 200) {
+          this.setState({
+            error: true,
+            loginSuccess: false,
+          });
+        } else
+          this.setState({
+            loginSuccess: true,
+            error: false,
+          });
+      };
 
     render(){
+        const { loginSuccess, error } = this.state;
+
+        if (loginSuccess) {
+            return <BrowserRouter>
+            <Redirect to="../Home/HomePage.js"/>
+          </BrowserRouter>
+          }
+
         return(
         <React.Fragment>
             <form onSubmit={this.handleOnSubmit}>

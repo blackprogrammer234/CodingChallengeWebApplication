@@ -1,7 +1,6 @@
 const express = require("express");
 const { check, validationResult } = require("express-validator/check");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const router = express.Router();
 const User = require("../models/Users")
 
@@ -9,9 +8,10 @@ router.post(
     "/login",
     [
         check("email", "Please enter a valid email").isEmail(),
-        check("password", "Please enter a valid password").isLength({
-            min: 6
-        })
+        check("password", "Please enter a valid password. It" +
+            "must be at least six characters long").isLength({
+                min: 6
+            })
     ],
     async (req, res) => {
         const errors = validationResult(req);
@@ -44,9 +44,9 @@ router.post(
                         success: false
                     });
                 } else {
-                    console.log("The information was received");
+                    console.log("User successfully authenticate");
                     res.status(200).json({
-                        message: "The information was received",
+                        message: "User successfully authenticate",
                         status: 200,
                         success: true
                     });
