@@ -4,16 +4,14 @@
 ---
 
 ## Description
-
 Created simple web application to handle user registration and login feature using several different technologies stack for front-end(reactJs) and back-end development(nodeJs, mongoDB and express)
 
 This project used the following techologies
--React and React-spring for front-end development
--NodeJs and Express for the back-end development
--MongoDB for the database
+- React and React-spring for front-end development
+- NodeJs and Express for the back-end development
+- MongoDB for the database
 
 ## Prerequisites
-
 - Node.js
 - NPM
 - React
@@ -44,12 +42,44 @@ Run react
 ```
  npm start
 ```
+The application should be running at http://localhost:3000/
 
+#### FOLDER STRUCTURE 
+These are all the files and folder that exist in my project
 
-#### API Reference
-
-```html
-    <p>dummy code</p>
+```
+CodingChallengeWebApplication
+    dist/
+                index.html
+                main.js
+    models/
+                Users.js
+    node_models/
+    public/
+    routes/
+                login.js
+                signup.js
+    src/
+            components/
+                Login/
+                    LoginPage.js
+                    LoginServices.js
+                Register/   
+                    RegisterPage.js
+                    RegisterServices.js 
+            App.js
+            stylesheet.css
+        index.html
+        index.js
+    .babelrc
+    .dockerignore
+    .gitignore
+    config.json
+    Dockerfile
+    index.js
+    package-lock.json
+    package.json
+    webpack.config.js
 ```
 [Back To The Top](#read-me-template)
 
