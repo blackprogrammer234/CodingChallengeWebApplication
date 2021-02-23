@@ -15,7 +15,7 @@ This project used the following techologies
 - Node.js
 - NPM
 - React
-- MongoDB Atlas MongoURI
+- MongoDB Atlas 
 
 ## How To Use
 
@@ -25,12 +25,13 @@ Clone the repository
 ```
  https://github.com/blackprogrammer234/CodingChallengeWebApplication.git
 ```
-Run the nodeJs script packages for Node backend
+Run the index.js to start the server 
 
 ```
  node index.js
 ```
-
+Note
+-The following command above will also start the monoDB server too.
 Install the packages for React
 
 ```
