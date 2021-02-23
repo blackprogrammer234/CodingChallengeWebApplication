@@ -12,12 +12,12 @@ This project used the following techologies
 - MongoDB for the database
 
 ## Prerequisites
-- Node.js
-- NPM
-- React
-- MongoDB Atlas 
 
-## How To Use
+These are the following technologies that you should already have install on your machine before running the app.
+- Node.js  https://nodejs.org/en/download/
+- NPM      https://www.npmjs.com/get-npm
+- React    https://react-cn.github.io/react/downloads.html
+- MongoDB Atlas https://www.mongodb.com/cloud/atlas/lp/try2?utm_source=google&utm_campaign=gs_americas_united_states_search_core_brand_atlas_desktop&utm_term=mongo%20atlas&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624338&gclid=CjwKCAiAyc2BBhAaEiwA44-wW8qW2op46O3QB-ga7wIPTgfUd-qUqHa3-UZ6-lMPL3t7LKPc8K75mxoCxMAQAvD_BwE
 
 #### Installation
 Clone the repository
@@ -47,6 +47,11 @@ Run the client
 The application should be running at http://localhost:3000/
 
 ![](public/images/loginPage.gif)
+#### Running the app
+
+Navigate to the registration page by clicking the "register" button. The page will contain the following fields to create a new account 
+
+![](public/images/screenshots/registrationpage.JPG)
 
 #### FOLDER STRUCTURE 
 These are all the files and folder that exist in my project
@@ -85,6 +90,9 @@ CodingChallengeWebApplication
     package.json
     webpack.config.js
 ```
+- `CodingChallengeWebApplication/index.js` is the main file handling most of the back-end functionality of the application including running the server -
+- `src/components` is the folder containing most of the files for running the client-side
+
 [Back To The Top](#read-me-template)
 
 ---
