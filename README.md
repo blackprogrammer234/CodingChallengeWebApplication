@@ -8,14 +8,42 @@
 Created simple web application to handle user registration and login feature using several different technologies stack for front-end(reactJs) and back-end development(nodeJs, mongoDB and express)
 
 This project used the following techologies
-*React and React-spring for front-end development
-*NodeJs and Express for the back-end development
-*MongoDB for the database
+-React and React-spring for front-end development
+-NodeJs and Express for the back-end development
+-MongoDB for the database
+
+## Prerequisites
+
+- Node.js
+- NPM
+- React
+- MongoDB Atlas MongoURI
 
 ## How To Use
 
 #### Installation
+Clone the repository
 
+```
+ https://github.com/blackprogrammer234/CodingChallengeWebApplication.git
+```
+Run the nodeJs script packages for Node backend
+
+```
+ node index.js
+```
+
+Install the packages for React
+
+```
+ npm install
+```
+
+Run react
+
+```
+ npm start
+```
 
 
 #### API Reference
