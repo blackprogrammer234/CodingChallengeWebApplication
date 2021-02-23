@@ -2,29 +2,15 @@
 
 ![Project Image](public/images/screenshots/loginpagewebapp.JPG)
 ---
-### Table of Contents
-You're sections headers will be used to reference location of destination.
-
-- [Description](#description)
-- [How To Use](#how-to-use)
-- [References](#references)
-- [License](#license)
-- [Author Info](#author-info)
-
----
 
 ## Description
 
-Created a simple login-registration web application using nodeJs, mongoDB, express and reactJs
+Created simple web application to handle user registration and login feature using several different technologies stack for front-end(reactJs) and back-end development(nodeJs, mongoDB and express)
 
-#### Technologies
-
-- Technology 1
-- Technology 2
-
-[Back To The Top](#read-me-template)
-
----
+This project used the following techologies
+*React and React-spring for front-end development
+*NodeJs and Express for the back-end development
+*MongoDB for the database
 
 ## How To Use
 
