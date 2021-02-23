@@ -110,6 +110,7 @@ const RegisterService = data => (
 The application will return a success message when the user is completed creating a new account. In which at that point the user can navigate to the login page
 
 ![](public/images/screenshots/successmessge.JPG)
+
 When logging into the application, the user will need to input the same credential they use to register to successfully login
 
 Here are the validation checks that are executing before making a call to the Login API
