@@ -142,26 +142,27 @@ class RegisterPage extends Component {
                     <div>
                         <div style ={{fontSize: 12, color: "red"}}>{this.state.firstNameError}</div>
                         <label htmlFor="firstName">First Name</label>
-                        <input type="text" id="firstName" placeholder="firstName" onChange={this.handleChangeOnFirstName}/>
+                        <input type="text" id="firstName" value = {this.state.firstName} placeholder="firstName" onChange={this.handleChangeOnFirstName}/>
                     </div>
                     <div>
                         <div style ={{fontSize: 12, color: "red"}}>{this.state.lastNameError}</div>
                         <label htmlFor="LastName">Last Name</label>
-                        <input type="text" id="lastName" placeholder="lastName" onChange={this.handleChangeOnLastName}/>
+                        <input type="text" id="lastName" value = {this.state.lastName} placeholder="lastName" onChange={this.handleChangeOnLastName}/>
                     </div>
                     <div>
                         <div style ={{fontSize: 12, color: "red"}}>{this.state.emailError}</div>
                         <label htmlFor="email">email</label>
-                        <input type="text" id="email" placeholder="email" onChange={this.handleChangeOnEmail} />
+                        <input type="text" id="email" value = {this.state.email} placeholder="email" onChange={this.handleChangeOnEmail} />
                     </div>
                     <div>
                         <div style ={{fontSize: 12, color: "red"}}>{this.state.passwordError}</div>
                         <label htmlFor="password">password</label>
-                        <input type="text" id="password" placeholder="password"  onChange={this.handleChangeOnPassword}/>
+                        <input type="text" id="password" value = {this.state.password} placeholder="password"  onChange={this.handleChangeOnPassword}/>
                     </div>
                     <div>
                         <button type="button" onClick={this.handleOnSubmit} className="submit">Sign up</button>
                     </div>
+                    <input type="reset" defaultValue="Reset" />  
                 </form>
         </React.Fragment>
         );  
