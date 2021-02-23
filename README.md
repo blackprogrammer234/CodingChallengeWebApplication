@@ -46,7 +46,7 @@ Run the client
 ```
 The application should be running at http://localhost:3000/
 
-<a href="https://imgflip.com/gif/4z3i3h"><img src= https://imgflip.com/gif/4z3ioe></a>
+![](public/images/loginPage.gif)
 
 #### FOLDER STRUCTURE 
 These are all the files and folder that exist in my project
