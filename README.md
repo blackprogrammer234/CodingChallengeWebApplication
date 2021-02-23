@@ -85,6 +85,9 @@ CodingChallengeWebApplication
     package.json
     webpack.config.js
 ```
+- `CodingChallengeWebApplication/index.js` is the main file handling most of the back-end functionality of the application including running the server -
+- `src/components` is the folder containing most of the files for running the client-side
+
 [Back To The Top](#read-me-template)
 
 ---
