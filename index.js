@@ -5,7 +5,6 @@ var config = require('./config.json');
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
-require('dotenv').config()
 
 //This prevent anyone from being block by CORS policy when accassing the database
 app.use(cors());
