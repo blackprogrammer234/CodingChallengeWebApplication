@@ -49,9 +49,21 @@ The application should be running at http://localhost:3000/
 ![](public/images/loginPage.gif)
 #### Running the app
 
-Navigate to the registration page by clicking the "register" button. The page will contain the following fields to create a new account 
 
-![](public/images/screenshots/registrationpage.JPG)
+![](public/images/screenshots/resigrationpage.JPG)
+
+-Create a new account
+
+Navigate to the registration page by clicking the "register" button.
+
+Note:
+
+When creating a password make sure that it contain the following below. 
+- least 6 character long 
+- contain one uppercase letter
+- contain one lowercase letter
+- conatin one number
+
 
 #### FOLDER STRUCTURE 
 These are all the files and folder that exist in my project
