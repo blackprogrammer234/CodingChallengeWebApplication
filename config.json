@@ -5,5 +5,37 @@
     },
     "mongoConnectionString": "mongodb+srv://stibo:Example1234567@cluster0.lp6s2.mongodb.net/new-user?retryWrites=true&w=majority",
 
-    "Home": "https://www.youtube.com/watch?v=-cZ7ndjhhps&ab_channel=TripleFlipKick360"
+    "Home": "https://www.youtube.com/watch?v=-cZ7ndjhhps&ab_channel=TripleFlipKick360",
+    "FirstName_Error_Message": "First name is invalid",
+    "LastName_Error_Message": "Last name is invalid",
+    "Email_Error_Message": "Invalid email",
+    "Password_Error_Message": "Invalid password. Password reguire at least 6 character,one uppercase character, one number and one special character",
+    "Success_Message_For_Registration": "You have sign up successfully",
+    "Failure_Message_For_Registration": "Error: Something went wrong. User registration failed",
+    "Success_Message_For_Login": "You successfully login to John Cena Homepage",
+    "Failure_Message_For_Login": "Error: There was a problem. We can't sign into your acount. Please try again",
+
+    "HIDE_BORDER": "solid 0px transparent",
+    "SHOW_BORDER": "solid 2px #1059FF",
+
+    "FIRSTNAME_ERROR_MESSAGE_FOR_DB": "Please enter a first name",
+    "LASTNAME_ERROR_MESSAGE_FOR_DB": "Please enter a last name",
+    "EMAIL_ERROR_MESSAGE_FOR_DB" : "Please enter a valid email",
+    "PASSWORD_ERROR_MESSAGE_FOR_DB": "Please enter a valid password. It must be at least six characters long",
+
+    "SUCCESS_RESPONSE200_FOR_LOGIN": "User successfully authenticate",
+    "SUCCESS_RESPONSE200_FOR_REGISTRATION":"User successfully register",
+
+    "FAILURE_RESPONSE400_FOR_REGISTRATION": "User Already Exists",
+    "FAILURE_RESPONSE400_EMAIL_FOR_LOGIN": "User doesn't exist",
+    "FAILURE_RESPONSE400_PASSWORD_FOR_LOGIN": "Incorrect Password",
+
+
+    "FAILURE_RESPONSE500_FOR_REGISTRATION": "There was problem with saving the information",
+    "FAILURE_RESPONSE500_FOR_LOGIN": "There was problem with grabbing the information",
+
+    "FAILURE_RESPONSE_500": "Server Error"
+
+
+
 }

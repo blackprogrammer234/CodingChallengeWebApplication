@@ -1,6 +1,7 @@
 import { useSpring, animated } from "react-spring";
 import React, { useState } from "react";
 import './stylesheet.css';
+import configData from "../../config.json";
 import LoginPage from './Login/LoginPage';
 import RegisterPage from './Register/RegisterPage'
 
@@ -21,8 +22,8 @@ function App() {
         left: registrationFormStatus ? 0 : 500,
     });
 
-    const hideBorder = "solid 0px transparent";
-    const showBorder = "solid 2px #1059FF"
+    const hideBorder = configData.HIDE_BORDER;
+    const showBorder = configData.SHOW_BORDER;
 
     /**
      * Animate the border underneath login/registration tab based on if registrationFormStatus
@@ -47,12 +48,10 @@ function App() {
      * set to true
      */
     function registerButtonClicked() {
-        console.log("register button was clicked");
         setRegistartionFormStatus(true);
     }
 
     function loginButtonClicked() {
-        console.log("login button was clicked");
         setRegistartionFormStatus(false);
     }
 
@@ -73,11 +72,17 @@ function App() {
     )
 
 }
+/**
+ * Implementation of the login form 
+ */
 function LoginForm() {
     return (
         <LoginPage />
     )
 }
+/**
+ * Implementation of the registration form
+ */
 function RegisterForm() {
     return (
         <RegisterPage />

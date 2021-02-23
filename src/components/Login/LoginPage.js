@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import LoginService from './LoginServices';
 import configData from "../../../config.json";
 import validator from 'validator'
-import { Redirect } from 'react-router';
-import { BrowserRouter  } from 'react-router-dom';
-import { useSpring, animated } from "react-spring";
+
 
 const initialState = {
     email: "",
@@ -31,10 +29,10 @@ class LoginPage extends Component{
         let passwordError = "";
 
         if(!this.state.password){
-            passwordError = "password field can not be blank"
+            passwordError = configData.Password_Error_Message;
         }
         if(!validator.isEmail(this.state.email)){
-            emailError = 'invalid email';
+            emailError = configData.Email_Error_Message;
         }
         if(emailError || passwordError){
             this.setState({emailError,passwordError});
@@ -83,26 +81,26 @@ class LoginPage extends Component{
     render(){
         const { loginSuccess, error } = this.state;
         if (loginSuccess) {
-           alert("You successfully login to John Cena Homepage");
+           alert(configData.Success_Message_For_Login);
            this.setState(initialState);
            window.open(configData.Home);
         }
         if(error){
-            alert("There was a problem. We can't sign into your acount. Please try again");
+            alert(configData.Failure_Message_For_Login);
             this.setState({error: false})
         }
         return(
         <React.Fragment>
             <form onSubmit={this.handleOnSubmit}>
                 <div>
+                    <div style ={{fontSize: 12, color: "red"}}>{this.state.emailError}</div>
                     <label htmlFor="email">EMAIL</label>
                     <input type="text" value = {this.state.email} id="email" placeholder="email" onChange= {this.handleChangeOnEmail}/>
-                    <div style ={{fontSize: 12, color: "red"}}>{this.state.emailError}</div>
                 </div>
                 <div>
+                    <div style ={{fontSize: 12, color: "red"}}>{this.state.passwordError}</div>
                     <label htmlFor="password">PASSWORD</label>
                     <input type="text" value = {this.state.password} id="password" placeholder="password" onChange= {this.handleChangeOnPassword}/>
-                    <div style ={{fontSize: 12, color: "red"}}>{this.state.passwordError}</div>
                 </div>
                 <div>
                     <button type="button" onClick={this.handleOnSubmit} className="submit">Login</button>

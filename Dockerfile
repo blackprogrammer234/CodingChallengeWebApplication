@@ -1,19 +1,16 @@
-FROM node:13.12.0-alpine
+  
+# using node 10.16.3 LTS Image based on Alpine Linux image
+FROM node:10.16.3-alpine
 
-# set working directory
-WORKDIR /app
+WORKDIR /server
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+EXPOSE 3000
+# sets env to node_modules in app
+ENV PATH /server/node_modules/.bin:$PATH
 
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
+# copies package.json from directory and installs packages
+COPY package*.json /server/
+RUN npm install
 
-# add app
-COPY . ./
-
-# start app
+# start command
 CMD ["npm", "start"]

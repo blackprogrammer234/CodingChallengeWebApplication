@@ -3,14 +3,15 @@ const { check, validationResult } = require("express-validator/check");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
-const User = require("../models/Users")
+const User = require("../models/Users");
+var config = require('../config.json')
 
 router.post(
     "/signup", [
-    check("firstName", "Please enter a first name").not().isEmpty(),
-    check("lastName", "Please enter a last name").not().isEmpty(),
-    check("email", "Please enter a valid email").isEmail(),
-    check("password", "Please enter a valid password").isLength({
+    check("firstName", config.FIRSTNAME_ERROR_MESSAGE_FOR_DB).not().isEmpty(),
+    check("lastName", config.LASTNAME_ERROR_MESSAGE_FOR_DB).not().isEmpty(),
+    check("email", config.EMAIL_ERROR_MESSAGE_FOR_DB).isEmail(),
+    check("password", config.PASSWORD_ERROR_MESSAGE_FOR_DB).isLength({
         min: 6
     })
 ],
@@ -35,7 +36,7 @@ router.post(
 
             if (user) {
                 return res.status(400).json({
-                    msg: "User Already Exists"
+                    msg: config.FAILURE_RESPONSE400_FOR_REGISTRATION
                 });
             }
             user = new User({
@@ -52,13 +53,12 @@ router.post(
                 if (err) {
                     console.log("Error: " + err);
                     res.status(500).json({
-                        message: "There was problem with saving the information",
+                        message: config.FAILURE_RESPONSE500_FOR_REGISTRATION,
                         success: false
                     });
                 } else {
-                    console.log("User successfully register");
                     res.status(200).json({
-                        message: "User successfully register",
+                        message: config.Success_Message_For_Registration,
                         success: true
                     });
                 }
@@ -68,7 +68,7 @@ router.post(
         catch(e){
             console.error(e);
             res.status(500).json({
-                message: "Server Error"
+                message: config.FAILURE_RESPONSE_500
             })
         }
     }
