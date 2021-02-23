@@ -3,6 +3,7 @@ import LoginService from './LoginServices';
 import configData from "../../../config.json";
 import validator from 'validator'
 
+//loginSucess and error will be use to keep track if the user is able to login or not 
 
 const initialState = {
     email: "",
@@ -28,12 +29,21 @@ class LoginPage extends Component{
         let emailError = "";
         let passwordError = "";
 
+        //Check to see if the password field is not empty
         if(!this.state.password){
             passwordError = configData.Password_Error_Message;
         }
+        //Check to see if the email is a valid email and not empty
         if(!validator.isEmail(this.state.email)){
             emailError = configData.Email_Error_Message;
         }
+         /**
+         * This conditional statement is responsible for print out error message above the input field based
+         * on if one of the is set 
+         * 
+         * For example: If a error message is set inside emailError then it will re-render the component  and
+         * print out the message
+         *  */ 
         if(emailError || passwordError){
             this.setState({emailError,passwordError});
             return false;
@@ -58,6 +68,7 @@ class LoginPage extends Component{
             email: this.state.email,
             password: this.state.password,
         };
+        //Validate the user input before executing POST request
         const isValid = this.validate();
         if (isValid) {
             const loginResult = await LoginService(data);
@@ -65,12 +76,14 @@ class LoginPage extends Component{
                 emailError : "",
                 passwordError : ""
             });
+        //loginSuccess will be set to false if the user some reason fails login
             if (loginResult != 200) {
                 this.setState({
                     loginSuccess: false,
                     error: true
                 });
             } else
+            //loginSuccess will be set to true if the user have successfully login
                 this.setState({
                     loginSuccess: true,
                     error : false 
@@ -80,11 +93,13 @@ class LoginPage extends Component{
 
     render(){
         const { loginSuccess, error } = this.state;
+        //Display success message if loginSuccess is set to true
         if (loginSuccess) {
            alert(configData.Success_Message_For_Login);
            this.setState(initialState);
            window.open(configData.Home);
         }
+        //Display error mesage if error is set to true
         if(error){
             alert(configData.Failure_Message_For_Login);
             this.setState({error: false})

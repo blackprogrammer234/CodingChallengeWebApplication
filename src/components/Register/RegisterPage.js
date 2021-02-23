@@ -4,6 +4,7 @@ import { useSpring, animated } from "react-spring";
 import RegisterService from "./RegisterServices";
 import configData from "../../../config.json";
 
+//registerSuccess and error will be use to keep track if the user is able to register or not
 const initialState = {
     firstName: "",
     lastName: "",
@@ -28,6 +29,7 @@ class RegisterPage extends Component {
         this.handleOnSubmit = this.handleOnSubmit.bind(this);
     }
 
+    //Handling validation checks before sending information to mongo
     validate = () => { 
         let firstNameError = "";
         let lastNameError = "";
@@ -38,7 +40,7 @@ class RegisterPage extends Component {
         if(!this.state.firstName || this.state.firstName.match(/\d/)){
             firstNameError = configData.FirstName_Error_Message;
         }
-        //Check to see if the last name field contains only letter and not empty
+        //Check to see if the last name field contains only letter, no dupicate names and not empty
         if(!this.state.lastName || this.state.lastName == this.state.firstName || this.state.lastName.match(/\d/)){
             lastNameError = configData.LastName_Error_Message;
         }
@@ -46,12 +48,21 @@ class RegisterPage extends Component {
         if(!validator.isEmail(this.state.email) || !this.state.email){
             emailError = configData.Email_Error_Message;
         }
+        //Check to see if the password meet the following requirement
+        //Password must be least 6 character long
+        //Password must contain least one uppercase letter, one lowercase letter, one number and one special character
         if(!validator.isStrongPassword(this.state.password, 
             {minLength: 6, minLowercase: 1, 
             minUppercase: 1, minNumbers: 1, minSymbols: 1
         })){
-            passwordError = configData.Password_Error_Message;
-        }
+            passwordError = configData.Password_Error_Message;}
+        /**
+         * This conditional statement is responsible for print out error message above the input field based
+         * on if one of the is set 
+         * 
+         * For example: If a error message is set inside firstNameError then it will re-render the component  and
+         * print out the message
+         *  */ 
         if(firstNameError||lastNameError || emailError || passwordError){
             this.setState({
                 firstNameError,
@@ -94,14 +105,17 @@ class RegisterPage extends Component {
             password: this.state.password,
         };
           const isValid = this.validate();
+          //Validate the user input before executing POST request
           if (isValid) {
               const registerResult = await RegisterService(data);
+              //registerSuccess will be set to false if the user some reason fails register
               if (registerResult != 200) {
                   this.setState({
                       registerSuccess: false,
                       error: true
                   });
               } else
+              //registerSuccess will be set to true if the user have successfully register
                   this.setState({
                       registerSuccess: true,
                       error: false
@@ -112,10 +126,12 @@ class RegisterPage extends Component {
 
     render() {
         const {registerSuccess, error } = this.state;
+        //Display success message if registerSuccess is set to true
         if (registerSuccess) {
            alert(configData.Success_Message_For_Registration);
            this.setState(initialState);
         }
+        //Display error mesage if error is set to true
         if(error){
             alert(configData.Failure_Message_For_Login);
             this.setState({error: false})
