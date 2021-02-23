@@ -33,13 +33,13 @@ Run the index.js to start the server
 Note
 -The following command above will also start the monoDB server too.
 
-Install the packages for React
+Install the packages to start running the client side
 
 ```
  npm install
 ```
 
-Run react
+Run the client 
 
 ```
  npm start
