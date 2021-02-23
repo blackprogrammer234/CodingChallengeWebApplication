@@ -70,7 +70,7 @@ When creating a password make sure that it contain the following below. If not t
 
 ![](public/images/screenshots/registrationpage3.JPG)
 
-
+The application will return back success message when the user is completed with creating a new account. In which at that point the user can navigate to the login page
 
 
 #### FOLDER STRUCTURE 
