@@ -70,7 +70,70 @@ When creating a password make sure that it contain the following below. If not t
 
 ![](public/images/screenshots/registrationpage3.JPG)
 
+Here are the validation checks that are executing before making a call to the registration API
+```
+ //Check to see if the first name field contains only letter and not empty
+        if(!this.state.firstName || this.state.firstName.match(/\d/)){
+            firstNameError = configData.FirstName_Error_Message;
+        }
+        //Check to see if the last name field contains only letter, no dupicate names and not empty
+        if(!this.state.lastName || this.state.lastName == this.state.firstName || this.state.lastName.match(/\d/)){
+            lastNameError = configData.LastName_Error_Message;
+        }
+        //Check to see if the email is a valid email and not empty
+        if(!validator.isEmail(this.state.email) || !this.state.email){
+            emailError = configData.Email_Error_Message;
+        }
+        //Check to see if the password meet the following requirement
+        //Password must be least 6 character long
+        //Password must contain least one uppercase letter, one lowercase letter, one number and one special character
+        if(!validator.isStrongPassword(this.state.password, 
+            {minLength: 6, minLowercase: 1, 
+            minUppercase: 1, minNumbers: 1, minSymbols: 1
+        })){
+            passwordError = configData.Password_Error_Message;}
+
+```
+
+Here's the API call being made when the user is being registered
+
+```
+const RegisterService = data => (
+	axios.post(baseUrl+ "/user/signup", data)
+		.then(res => res.status)
+        .catch((error) =>{
+            console.log(error.res);
+        })
+)
+```
+
 The application will return a success message when the user is completed creating a new account. In which at that point the user can navigate to the login page
+
+![](public/images/screenshots/successmessge.JPG)
+When logging into the application, the user will need to input the same credential they use to register to successfully login
+
+Here are the validation checks that are executing before making a call to the Login API
+```
+//Check to see if the password field is not empty
+        if(!this.state.password){
+            passwordError = configData.Password_Error_Message;
+        }
+        //Check to see if the email is a valid email and not empty
+        if(!validator.isEmail(this.state.email)){
+            emailError = configData.Email_Error_Message;
+        }
+```
+
+Here's the API call being made when the user is being authenticated
+```
+const LoginService = data => (
+	axios.post(baseUrl+ "/user/login", data)
+		.then(res => res.status)
+        .catch((error) =>{
+            console.log(error.res);
+        })
+)
+```
 
 
 #### FOLDER STRUCTURE 
