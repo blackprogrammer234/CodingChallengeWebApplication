@@ -19,8 +19,6 @@ These are the following technologies that you should already have install on you
 - React    https://react-cn.github.io/react/downloads.html
 - MongoDB Atlas https://www.mongodb.com/cloud/atlas/lp/try2?utm_source=google&utm_campaign=gs_americas_united_states_search_core_brand_atlas_desktop&utm_term=mongo%20atlas&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624338&gclid=CjwKCAiAyc2BBhAaEiwA44-wW8qW2op46O3QB-ga7wIPTgfUd-qUqHa3-UZ6-lMPL3t7LKPc8K75mxoCxMAQAvD_BwE
 
-## How To Use
-
 #### Installation
 Clone the repository
 
@@ -49,6 +47,9 @@ Run the client
 The application should be running at http://localhost:3000/
 
 ![](public/images/loginPage.gif)
+#### Runing the app
+
+![](public/images/screenshots/registrationpage.JPG)
 
 #### FOLDER STRUCTURE 
 These are all the files and folder that exist in my project
