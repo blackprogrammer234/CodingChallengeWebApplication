@@ -52,17 +52,25 @@ The application should be running at http://localhost:3000/
 
 ![](public/images/screenshots/resigrationpage.JPG)
 
--Create a new account
+Create a new account
 
 Navigate to the registration page by clicking the "register" button.
 
 Note:
 
-When creating a password make sure that it contain the following below. 
+The application will throw 400 (bad request) if the user is trying to register with an existing account.
+
+When creating a password make sure that it contain the following below. If not the application will not allow the user to register a new account
 - least 6 character long 
 - contain one uppercase letter
 - contain one lowercase letter
 - conatin one number
+
+![](public/images/screenshots/registrationPage2.JPG)
+
+![](public/images/screenshots/registrationpage3.JPG)
+
+
 
 
 #### FOLDER STRUCTURE 
