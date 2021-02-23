@@ -47,7 +47,9 @@ Run the client
 The application should be running at http://localhost:3000/
 
 ![](public/images/loginPage.gif)
-#### Runing the app
+#### Running the app
+
+Navigate to the registration page by clicking the "register" button. The page will contain the following fields to create a new account 
 
 ![](public/images/screenshots/registrationpage.JPG)
 
