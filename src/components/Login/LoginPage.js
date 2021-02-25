@@ -28,6 +28,11 @@ class LoginPage extends Component{
     validate = () => { 
         let emailError = "";
         let passwordError = "";
+        
+        this.setState({
+            emailError: "",
+            passwordError: ""
+        })
 
         //Check to see if the password field is not empty
         if(!this.state.password){

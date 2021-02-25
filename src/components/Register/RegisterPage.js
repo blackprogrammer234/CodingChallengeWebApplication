@@ -35,40 +35,50 @@ class RegisterPage extends Component {
         let lastNameError = "";
         let emailError = "";
         let passwordError = "";
-
+        
+        this.setState({
+            firstNameError: "",
+            lastNameError: "",
+            emailError: "",
+            passwordError: ""
+        })
+        
         //Check to see if the first name field contains only letter and not empty
-        if(!this.state.firstName || this.state.firstName.match(/\d/)){
+        if (!this.state.firstName || this.state.firstName.match(/\d/)) {
             firstNameError = configData.FirstName_Error_Message;
         }
         //Check to see if the last name field contains only letter, no dupicate names and not empty
-        if(!this.state.lastName || this.state.lastName == this.state.firstName || this.state.lastName.match(/\d/)){
+        if (!this.state.lastName || this.state.lastName == this.state.firstName || this.state.lastName.match(/\d/)) {
             lastNameError = configData.LastName_Error_Message;
         }
         //Check to see if the email is a valid email and not empty
-        if(!validator.isEmail(this.state.email) || !this.state.email){
+        if (!validator.isEmail(this.state.email) || !this.state.email) {
             emailError = configData.Email_Error_Message;
         }
         //Check to see if the password meet the following requirement
         //Password must be least 6 character long
         //Password must contain least one uppercase letter, one lowercase letter, one number and one special character
-        if(!validator.isStrongPassword(this.state.password, 
-            {minLength: 6, minLowercase: 1, 
-            minUppercase: 1, minNumbers: 1, minSymbols: 1
-        })){
-            passwordError = configData.Password_Error_Message;}
+        if (!validator.isStrongPassword(this.state.password,
+            {
+                minLength: 6, minLowercase: 1,
+                minUppercase: 1, minNumbers: 1, minSymbols: 1
+            })) {
+            passwordError = configData.Password_Error_Message;
+        }
         /**
          * This conditional statement is responsible for print out error message above the input field based
          * on if one of the is set 
          * 
          * For example: If a error message is set inside firstNameError then it will re-render the component  and
          * print out the message
-         *  */ 
-        if(firstNameError||lastNameError || emailError || passwordError){
+         *  */
+        if (firstNameError || lastNameError || emailError || passwordError) {
             this.setState({
                 firstNameError,
                 lastNameError,
                 emailError,
-                passwordError});
+                passwordError
+            });
             return false;
         }
         return true;
@@ -108,7 +118,7 @@ class RegisterPage extends Component {
           //Validate the user input before executing POST request
           if (isValid) {
               const registerResult = await RegisterService(data);
-              //registerSuccess will be set to false if the user some reason fails register
+              //registerSuccess will be set to false if the user for some reason fails register
               if (registerResult != 200) {
                   this.setState({
                       registerSuccess: false,
