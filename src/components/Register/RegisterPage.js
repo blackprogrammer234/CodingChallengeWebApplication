@@ -43,13 +43,25 @@ class RegisterPage extends Component {
             passwordError: ""
         })
         
-        //Check to see if the first name field contains only letter and not empty
-        if (!this.state.firstName || this.state.firstName.match(/\d/)) {
-            firstNameError = configData.FirstName_Error_Message;
+        //Check to see if the first name field is not empty
+        if(!this.state.firstName){
+            firstNameError = configData.FirstName_Is_Not_Empty;
         }
-        //Check to see if the last name field contains only letter, no dupicate names and not empty
-        if (!this.state.lastName || this.state.lastName == this.state.firstName || this.state.lastName.match(/\d/)) {
-            lastNameError = configData.LastName_Error_Message;
+        //Check to see if the first name contains only letters
+        if(this.state.firstName.match(/\d/)){
+            firstNameError = configData.FirstName_Only_Contain_Letters
+        }
+        //Check to see if the last name field is not empty
+        if(!this.state.lastName){
+            lastNameError = configData.LastName_Is_Not_Empty
+        }
+        //Check to see if the last name field contains only letters
+        if(this.state.lastName.match(/\d/)){
+            lastNameError = configData.LastName_Only_Contain_Letters
+        }
+        //Check to see if last name is not the same as first name
+        if(this.state.lastName == this.state.firstName){
+            lastNameError = configData.LastName_Cant_Be_FirstName
         }
         //Check to see if the email is a valid email and not empty
         if (!validator.isEmail(this.state.email) || !this.state.email) {

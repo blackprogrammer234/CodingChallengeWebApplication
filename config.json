@@ -6,6 +6,11 @@
     "mongoConnectionString": "mongodb+srv://stibo:Example1234567@cluster0.lp6s2.mongodb.net/new-user?retryWrites=true&w=majority",
 
     "Home": "https://www.youtube.com/watch?v=RZIhpba83hY&ab_channel=QualityReactions",
+    "FirstName_Is_Not_Empty":"Name can't be empty",
+    "FirstName_Only_Contain_Letters": "Name can't contain number",
+    "LastName_Is_Not_Empty": "Last name can't be empty",
+    "LastName_Only_Contain_Letters": "Last name can't contain number",
+    "LastName_Cant_Be_FirstName" : "Last name can't be the same as first",
     "FirstName_Error_Message": "First name is invalid",
     "LastName_Error_Message": "Last name is invalid",
     "Email_Error_Message": "Invalid email",
