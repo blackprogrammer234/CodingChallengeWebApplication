@@ -120,7 +120,7 @@ class LoginPage extends Component{
                 <div>
                     <div style ={{fontSize: 12, color: "red"}}>{this.state.passwordError}</div>
                     <label htmlFor="password">PASSWORD</label>
-                    <input type="text" value = {this.state.password} id="password" placeholder="password" onChange= {this.handleChangeOnPassword}/>
+                    <input type="password" value = {this.state.password} id="password" placeholder="password"  onChange= {this.handleChangeOnPassword}/>
                 </div>
                 <div>
                     <button type="button" onClick={this.handleOnSubmit} className="submit">Login</button>

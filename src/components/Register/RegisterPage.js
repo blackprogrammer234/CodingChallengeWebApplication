@@ -179,7 +179,7 @@ class RegisterPage extends Component {
                     <div>
                         <div style ={{fontSize: 12, color: "red"}}>{this.state.passwordError}</div>
                         <label htmlFor="password">password</label>
-                        <input type="text" id="password" value = {this.state.password} placeholder="password"  onChange={this.handleChangeOnPassword}/>
+                        <input type="password" id="password" value = {this.state.password} placeholder="password" onChange={this.handleChangeOnPassword}/>
                     </div>
                     <div>
                         <button type="button" onClick={this.handleOnSubmit} className="submit">Sign up</button>
