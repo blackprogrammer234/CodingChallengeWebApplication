@@ -11,6 +11,24 @@ This project used the following technologies
 - NodeJs and Express for the back-end development
 - MongoDB for the database
 
+Business Requirement
+- We want to create a simple nodeJS web application.
+- We will need a database. You can use mongoDB or any other database. If you want to
+use MongoDB, you can use https://mlab.com/
+- This will be a simple login/register application where an user can register himself (using
+say first-name, last-name, email, password). Once registered, the user can then login to
+the system with his email and password.
+- The code must be production ready. This means.
+o Check all edge cases (check format of email, add some requirement on
+password. Use your imagination!).
+o Handle duplicate email
+o No need to perform 2 factor authentication or reset password.
+- For front-end development, you can use any language. It can be a simple HTML page or
+any front-end framework (such as reactJS).
+- Code must be uploaded to a code repository. I suggest use bitbucket or github. You can
+share the link with use to review.
+- Must provide detail instruction on how to run the code. A readme file will work.
+
 ## Prerequisites
 
 These are the following technologies that you should already have install on your machine before running the app.
