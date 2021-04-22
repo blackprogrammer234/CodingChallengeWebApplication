@@ -136,6 +136,7 @@ Run the index.js to start the server
 ```
  node index.js
 ```
+Note: Run `npm install cors --save` from the command line if you get following command: Cannot find module 'cors'
 
 Install the packages to start running the client side
 
